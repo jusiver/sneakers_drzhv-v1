@@ -1,9 +1,10 @@
-function Cart(){
+function Cart(props){
   return(
-    <div style={{ display: 'none'}} className="Shadow">
+    <div className="Shadow">
         <div className="Cart" >
           <h2 className="d-flex justify-between mb-30">
-            Кошик <img className="cu-p" src="/img/Btn-remove.svg" alt="Remove" />
+            Кошик 
+            <img onClick={props.onClose} className="cu-p" src="/img/Btn-remove.svg" alt="Close" />
           </h2>
 
           <div className="Items"> 
