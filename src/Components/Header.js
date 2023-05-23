@@ -1,20 +1,29 @@
+import { Link } from 'react-router-dom';
+
 function Header(props) {
     return (
         <header className="d-flex justify-between align-center p-40">
-        <div className="d-flex align-center">
-          <img width={40} height={40} src="/img/Logo.png" />
-          <div>
-            <h3 className="text-uppercase">Sneakers_Drzhv</h3>
-            <p className="opacity-5">Магазин кросівок для найкращих</p>
-          </div>
-        </div>
+          <Link to="/">
+            <div className="d-flex align-center">
+              <img width={40} height={40} src="/img/Logo.png" alt="Logo" />
+                <div>
+                  <h3 className="text-uppercase">Drzhv_Store</h3>
+                  <p className="opacity-5">Магазин кросівок для найкращих</p>
+                </div>
+            </div>
+        </Link>
         <ul className="d-flex">
           <li onClick={props.onClickCart} className="mr-30 cu-p">
-            <img width={18} height={18} src="/img/Cart.svg" />
+            <img width={18} height={18} src="/img/Cart.svg" alt="Кошик" />
             <span>1488 грн.</span>
           </li>
+          <li className="mr-5 cu-p">
+            <Link to="/favorites">
+              <img width={18} height={18} src="/img/Heart.svg" alt="Закладки" />
+            </Link>
+          </li>
           <li>
-            <img width={18} height={18} src="/img/User.svg" />
+            <img width={18} height={18} src="/img/User.svg" alt="Юзер" />
           </li>
         </ul>
       </header>

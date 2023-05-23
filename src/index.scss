@@ -35,10 +35,51 @@ header {
   }
 }
 
+.cartEmpty {
+  text-align: center;
+
+  p {
+    width: 280px;
+    line-height: 24px;
+  }
+
+    .redButton {
+      width: 245px;
+      margin-top: 20px;
+
+      &:hover {
+        img {
+          transform: rotate(180deg) translate(3px);
+        }
+      }
+
+      img {
+        position: relative;
+        top: 1px;
+        transform: rotate(180deg);
+        margin-right: 15px;
+        transition: transform 0.15s ease-in-out;
+      }
+    }
+  }
+
+
+
+
+
 .Search-block {
   border: 1px solid #F3F3F3;
   border-radius: 10px;
   padding: 0 15px;
+  position: relative;
+
+  .clear{
+    position: absolute;
+    right: 0;
+    width: 10px;
+    top: 15px;
+    right: 15px;
+  }
 
   input {
     border: 0;
@@ -56,6 +97,7 @@ header {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
+  position: fixed;
 }
 
 
