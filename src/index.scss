@@ -148,6 +148,10 @@ header {
   .redButton {
     position: relative;
 
+    &:disabled {
+      animation: button-loading 0.8s ease-in-out infinite;
+    }
+
     &:hover {
       img{
         transform: translateX(5px);
@@ -159,7 +163,7 @@ header {
       position: absolute;
       right: 30px;
       top: 20px; 
-      transition: transform 0.15s ease-in-out;
+      transition: transform 0.9s ease-in-out;
     }
   }
 }
@@ -175,6 +179,11 @@ header {
     font-weight: 450;
     cursor: pointer;
     transition: background 0.1s ease-in-out;
+
+    &:disabled {
+      background-color: #d4d4d4 !important;
+      cursor: default;  
+    }
 
     svg {
       margin-left: 20px;
@@ -223,5 +232,17 @@ header {
       opacity: 1;
     }
 
+  }
+}
+
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
   }
 }
