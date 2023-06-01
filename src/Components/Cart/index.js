@@ -1,16 +1,22 @@
+//библиотеки (чужое)
 import React from 'react';
 import axios from 'axios';
 
-import Info from './info';
-import AppContext from '../context';
+//javascripts файлы, компонентов
+import Info from '../info';
+import { useCart } from '../../hooks/useCart';
+
+//стили, прочее
+import styles from './Cart.module.scss';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function Cart({ onClose, onRemove, items = [] }) {
-  const { cartItems, setCartItems } = React.useContext(AppContext);
+function Cart({ onClose, onRemove, items = [], opened }) {
+  const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
+  
 
   const onClickOrder = async () => {
     try {
@@ -35,8 +41,8 @@ function Cart({ onClose, onRemove, items = [] }) {
   };
 
   return (
-    <div className="Shadow">
-      <div className="Cart">
+    <div className={`${styles.shadow} ${opened ? styles.shadowVisible : ''}`}>
+      <div className={styles.cart}> 
         <h2 className="d-flex justify-between mb-30">
           Кошик
           <img onClick={onClose} className="cu-p" src="/img/Btn-remove.svg" alt="Close" />
@@ -44,7 +50,7 @@ function Cart({ onClose, onRemove, items = [] }) {
 
         {items.length > 0 ? (
           <div className="d-flex flex-column flex">
-            <div className="Items">
+            <div className="Items flex">
               {items.map((obj) => (
                 <div key={obj.id} className="CartItem d-flex align-center mb-20">
                   <div style={{ backgroundImage: `url(${obj.imageUrl})` }} className="CartItemImg"></div>
@@ -67,12 +73,12 @@ function Cart({ onClose, onRemove, items = [] }) {
                 <li>
                   <span>Разом:</span>
                   <div></div>
-                  <b>29 776 грн.</b>
+                  <b>{totalPrice} грн.</b>
                 </li>
                 <li>
                   <span>Податок 5%:</span>
                   <div></div>
-                  <b>1 488.8 грн.</b>
+                  <b>{parseFloat((totalPrice / 100) * 5).toFixed(2)} грн.</b>
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClickOrder} className="redButton">

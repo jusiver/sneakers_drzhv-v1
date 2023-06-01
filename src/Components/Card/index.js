@@ -8,6 +8,7 @@ import Styles from './Card.module.scss';
 
 function Card({ 
   id, 
+  parentId,
   title, 
   imageUrl, 
   price, 
@@ -49,9 +50,11 @@ function Card({
             </ContentLoader> 
           ) : (
             <>
-            <div className={Styles.Favorite} onClick={onClickLiked}>
-              <img src={isFavorite ? '/img/Liked.svg' : '/img/Unliked.svg'} alt="Unliked" />  
-            </div>
+            {onClickFavorite && (
+              <div className={Styles.Favorite} onClick={onClickLiked}>
+                <img src={isFavorite ? '/img/Liked.svg' : '/img/Unliked.svg'} alt="Unliked" />  
+              </div>
+            )}
             <img width='100%' height={135} src={imageUrl} alt="Sneakers" />
             <h5>{title}</h5>
             <div className="d-flex justify-between align-center">
@@ -59,12 +62,14 @@ function Card({
                 <span>Ціна:</span>
                 <b>{price} грн.</b>
               </div>
-              <img 
-                className={Styles.Plus} 
-                onClick={onClickPlus} 
-                src={isItemAdded(id) ? "/img/Btn_checked.svg" : "/img/Btn_add.svg"} 
-                alt="Plus" 
+              {onClickAdd && (
+                <img 
+                  className={Styles.Plus} 
+                  onClick={onClickPlus} 
+                  src={isItemAdded(parentId) ? "/img/Btn_checked.svg" : "/img/Btn_add.svg"} 
+                  alt="Plus" 
               />
+            )}
             </div>
           </>
         )} 
