@@ -25,9 +25,9 @@ function App() {
       try {
       
       const [cartResponse, favoritesResponse, itemsResponse] = await Promise.all([ //вовращает все 3 промиса в массив, по порядку. С помощью деструктуризации
-        axios.get('https://6467fd35e99f0ba0a81c043a.mockapi.io/sneakers_drzhv/cart'), //промис
-        axios.get('https://646bd9eb7b42c06c3b2a8632.mockapi.io/sneakers_drzhv/favorites'), //промис 2
-        axios.get('https://6467fd35e99f0ba0a81c043a.mockapi.io/sneakers_drzhv/items'), //промис 3 
+        axios.get('https://6467fd35e99f0ba0a81c043a.mockapi.io/cart'), //промис
+        axios.get('https://646bd9eb7b42c06c3b2a8632.mockapi.io/favorites'), //промис 2
+        axios.get('https://6467fd35e99f0ba0a81c043a.mockapi.io/items'), //промис 3 
       ]);
      
       
@@ -125,7 +125,7 @@ function App() {
 
         <Routes>
           <Route 
-            exact path="" 
+            exact path="/" 
             element={
             <Home 
               items={items} 
@@ -140,14 +140,14 @@ function App() {
             />
 
           <Route 
-            exact path="favorites" 
+            exact path="/favorites" 
             element={
             <Favorites />
             }
             />
 
           <Route 
-            exact path="orders" 
+            exact path="/orders" 
             element={
             <Orders />
             }
