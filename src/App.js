@@ -125,7 +125,7 @@ function App() {
 
         <Routes>
           <Route 
-            exact path="/" 
+            exact path="" 
             element={
             <Home 
               items={items} 
@@ -140,14 +140,14 @@ function App() {
             />
 
           <Route 
-            exact path="/favorites" 
+            exact path="favorites" 
             element={
             <Favorites />
             }
             />
 
           <Route 
-            exact path="/orders" 
+            exact path="orders" 
             element={
             <Orders />
             }
