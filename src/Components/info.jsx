@@ -16,7 +16,7 @@ const Info = ({ title, image, description }) => {
             <h2>{title}</h2>
             <p className="opacity-6">{description}</p>
             <button onClick={() => setCartOpened(false)} className="redButton">
-                <img src="img/Arrow.svg" alt="Arrow" />
+                <img src="/img/Arrow.svg" alt="Arrow" />
                 Повернутися
             </button>
           </div>

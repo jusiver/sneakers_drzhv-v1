@@ -45,7 +45,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
       <div className={styles.cart}> 
         <h2 className="d-flex justify-between mb-30">
           Кошик
-          <img onClick={onClose} className="cu-p" src="img/Btn-remove.svg" alt="Close" />
+          <img onClick={onClose} className="cu-p" src="/img/Btn-remove.svg" alt="Close" />
         </h2>
 
         {items.length > 0 ? (
@@ -62,7 +62,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                   <img
                     onClick={() => onRemove(obj.id)}
                     className="RemoveBtn"
-                    src="img/Btn-remove.svg"
+                    src="/img/Btn-remove.svg"
                     alt="Remove"
                   />
                 </div>
@@ -82,7 +82,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                 </li>
               </ul>
               <button disabled={isLoading} onClick={onClickOrder} className="redButton">
-                Оформити замовлення <img src="img/Arrow.svg" alt="Arrow" />
+                Оформити замовлення <img src="/img/Arrow.svg" alt="Arrow" />
               </button>
             </div>
           </div>
@@ -94,7 +94,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                 ? `Ваше замовлення #${orderId} скоро буде передано кур'єру`
                 : 'Додайте хоча б одну пару кросівок, щоб зробити замовлення.'
             }
-            image={isOrderComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'}
+            image={isOrderComplete ? '/img/complete-order.jpg' : '/img/empty-cart.jpg'}
             items={items}
           />
         )}
