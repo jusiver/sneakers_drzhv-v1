@@ -21,7 +21,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
   const onClickOrder = async () => {
     try {
       setIsLoading(true);
-      const { data } = await axios.post('https://646bd9eb7b42c06c3b2a8632.mockapi.io/orders', {
+      const { data } = await axios.post('https://646bd9eb7b42c06c3b2a8632.mockapi.io/sneakers_drzhv/orders', {
         items: cartItems,
       });
       setOrderId(data.id);
@@ -31,7 +31,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
       //"костыль" для мокапи
       for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
-        await axios.delete('https://6467fd35e99f0ba0a81c043a.mockapi.io/cart/' + item.id);
+        await axios.delete('https://6467fd35e99f0ba0a81c043a.mockapi.io/sneakers_drzhv/cart/${item.id}' + item.id);
         await delay(1000);
       }
     } catch (error) {
